@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Suspense } from 'react'
 
-import { CssBaseline, MuiThemeProvider } from '@material-ui/core'
 import { BrowserRouter } from 'react-router-dom'
 
 import useTheme from './hooks/theme.hook'
@@ -21,12 +20,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Suspense fallback={<Loader />}>
-          <Routers isAuthenticated={isAuthenticated} />
-        </Suspense>
-      </MuiThemeProvider>
+      <Suspense fallback={<Loader />}>
+        <Routers isAuthenticated={isAuthenticated} />
+      </Suspense>
     </BrowserRouter>
   )
 }
