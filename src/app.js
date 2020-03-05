@@ -5,7 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import useTheme from './hooks/theme.hook'
 import Routers from './routes'
 import { useStoreState } from './store'
-import Loader from './views/components/loader'
+
+const Loader = () => <>Loader</>
 
 const App = () => {
   const { theme } = useTheme()
