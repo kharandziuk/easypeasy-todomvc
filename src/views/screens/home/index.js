@@ -2,9 +2,24 @@ import React, { memo } from 'react'
 
 import './index.scss'
 
+import { useHome } from './home.hook'
+
 //import classnames from 'classnames'
 
+const Item = ({ text }) => (
+  <li>
+    <div className="view">
+      <input className="toggle" type="checkbox" />
+      <label>{text}</label>
+      <button className="destroy" />
+    </div>
+    <input className="edit" defaultValue="something" />
+  </li>
+)
+
 function Home() {
+  const { todos } = useHome()
+
   return (
     <section className="todoapp">
       <header className="header">
@@ -19,27 +34,14 @@ function Home() {
         <input className="toggle-all" id="toggle-all" type="checkbox" />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>something</label>
-              <button className="destroy" />
-            </div>
-            <input className="edit" defaultValue="something" />
-          </li>
-          <li>
-            <div className="view">
-              <input className="toggle" type="checkbox" />
-              <label>important</label>
-              <button className="destroy" />
-            </div>
-            <input className="edit" defaultValue="important" />
-          </li>
+          {todos.map((el, i) => (
+            <Item key={i} text={el.text} />
+          ))}
         </ul>
       </section>
       <footer className="footer" style={{ display: 'block' }}>
         <span className="todo-count">
-          <strong>2</strong> items left
+          <strong>{todos.length}</strong> items left
         </span>
         <ul className="filters">
           <li>

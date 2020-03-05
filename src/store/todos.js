@@ -1,12 +1,14 @@
 import { action } from 'easy-peasy'
 
-const initialState = [
-  {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
-  }
-]
+const initialState = {
+  todos: [
+    {
+      text: 'Use EasyPease',
+      isCompleted: false,
+      id: 0,
+    },
+  ],
+}
 
 export default {
   ...initialState,
@@ -14,21 +16,18 @@ export default {
     const item = {
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
       completed: false,
-      text: action.text
+      text: action.text,
     }
-    return [ ...state, item ]
+    return [...state, item]
   }),
   deleteTodo: action((state, id) => {
-    return state.filter(todo =>
-      todo.id !== action.id
-    )
+    return state.filter(todo => todo.id !== action.id)
   }),
-  editTodo: action((state, {id, text}) => {
-    return state.map(todo =>
-      todo.id === id ?  { ...todo, text } : todo
-    )
+  editTodo: action((state, { id, text }) => {
+    return state.map(todo => (todo.id === id ? { ...todo, text } : todo))
   }),
 }
+
 //    case COMPLETE_TODO:
 //      return state.map(todo =>
 //                todo.id === action.id ?
@@ -48,4 +47,3 @@ export default {
 //
 //    default:
 //      return state
-
