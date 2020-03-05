@@ -3,6 +3,7 @@ import 'react-app-polyfill/stable'
 
 import './index.scss'
 
+
 import React from 'react'
 
 import { StoreProvider } from 'easy-peasy'
@@ -12,10 +13,11 @@ import App from './app'
 
 import store from './store'
 
+
 function Root() {
   return (
     <StoreProvider store={store}>
-      <App />
+        <App />
     </StoreProvider>
   )
 }
