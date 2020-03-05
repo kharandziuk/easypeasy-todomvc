@@ -12,12 +12,6 @@ const App = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  const { token: tokenStore } = useStoreState(state => state.user)
-
-  useEffect(() => {
-    setIsAuthenticated(Boolean(tokenStore))
-  }, [tokenStore])
-
   return (
     <BrowserRouter>
       <Suspense fallback={<Loader />}>

@@ -10,7 +10,7 @@ function useHome() {
   const { history } = useReactRouter()
   const { private: privateRoutes } = routes
 
-  const todos = useStoreState(state => state.todos.todos)
+  const todos = useStoreState(state => state.todos.items)
 
   return {
     todos,

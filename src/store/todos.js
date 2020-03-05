@@ -1,7 +1,7 @@
 import { action } from 'easy-peasy'
 
 const initialState = {
-  todos: [
+  items: [
     {
       text: 'Use EasyPease',
       isCompleted: false,
