@@ -6,8 +6,6 @@ import routes from './common/routes'
 
 const Home = lazy(() => import('./screen'))
 
-//const PublicRoutes = lazy(() => import('./public-routes'))
-
 const PublicRoutes = () => {
   const { location } = useReactRouter()
 
