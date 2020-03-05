@@ -1,4 +1,5 @@
-import { action } from 'easy-peasy'
+import { createStore, createTypedHooks, action } from 'easy-peasy'
+import storage from 'redux-persist/lib/storage'
 
 const initialState = {
   items: [
@@ -10,7 +11,7 @@ const initialState = {
   ],
 }
 
-export default {
+const todos = {
   ...initialState,
   addTodo: action((state, text) => {
     const item = {
@@ -47,3 +48,13 @@ export default {
 //
 //    default:
 //      return state
+
+const model = { todos }
+
+const { useStoreActions, useStoreState } = createTypedHooks()
+
+const store = createStore(model)
+
+export { useStoreActions, useStoreState }
+
+export default store
