@@ -2,8 +2,6 @@ import React, { lazy } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import useReactRouter from 'use-react-router'
 
-import routes from './common/routes'
-
 const Home = lazy(() => import('./screen'))
 
 const PublicRoutes = () => {
@@ -11,17 +9,22 @@ const PublicRoutes = () => {
 
   return (
     <Switch>
-      <Route exact path={routes.public.HOME} component={Home} />
+      <Route exact path={routes.INDEX} component={Home} />
     </Switch>
   )
 }
 
-const Routers = props => {
+const Router = props => {
   return (
     <React.Fragment>
       <PublicRoutes />
     </React.Fragment>
   )
 }
+const routes = {
+  INDEX: '/',
+}
 
-export default React.memo(Routers)
+export { routes, Router }
+
+export default React.memo(Router)
