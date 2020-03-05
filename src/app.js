@@ -3,7 +3,7 @@ import React, { useEffect, useState, Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import useTheme from './hooks/theme.hook'
-import Routers from './routers'
+import Routers from './routes'
 import { useStoreState } from './store'
 import Loader from './views/components/loader'
 

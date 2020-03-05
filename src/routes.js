@@ -2,9 +2,9 @@ import React, { lazy } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import useReactRouter from 'use-react-router'
 
-import routes from '../common/routes'
+import routes from './common/routes'
 
-const Home = lazy(() => import('../views/screens/home'))
+const Home = lazy(() => import('./screen'))
 
 //const PublicRoutes = lazy(() => import('./public-routes'))
 

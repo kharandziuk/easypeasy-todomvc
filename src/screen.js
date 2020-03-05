@@ -3,13 +3,12 @@ import React, { memo } from 'react'
 import './index.scss'
 
 import useReactRouter from 'use-react-router'
-import routes from '../../../common/routes'
 //import classnames from 'classnames'
-import { useStoreActions, useStoreState } from '../../../store'
+
+import { useStoreActions, useStoreState } from './store'
+
 function useHome() {
   const { history } = useReactRouter()
-  const { private: privateRoutes } = routes
-
   const todos = useStoreState(state => state.todos.items)
 
   return {
